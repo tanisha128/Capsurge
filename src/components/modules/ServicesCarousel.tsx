@@ -225,7 +225,6 @@ export function ServicesCarousel() {
                 </motion.div>
               );
             })}
-          {/* End of cards map */}
         </div>
       </div>
 
