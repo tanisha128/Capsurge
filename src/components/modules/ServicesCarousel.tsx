@@ -118,7 +118,7 @@ export function ServicesCarousel() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % SERVICES.length);
-    }, 10000);
+    }, 8000);
     return () => clearTimeout(timer);
   }, [activeIndex]);
 
