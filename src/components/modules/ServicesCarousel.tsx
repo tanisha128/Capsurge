@@ -118,7 +118,7 @@ export function ServicesCarousel() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % SERVICES.length);
-    }, 8000);
+    }, 7000);
     return () => clearTimeout(timer);
   }, [activeIndex]);
 
@@ -228,12 +228,12 @@ export function ServicesCarousel() {
                 )}
 
                 <div className="relative flex h-full flex-col">
-                  <div className="mb-6 flex items-center justify-center gap-4 text-center">
+                  <div className="mb-6 flex items-center gap-5">
                     <div
-                      className={`flex rounded-2xl p-3.5 transition-all duration-300 ${isActive ? "bg-white/12 text-white" : "bg-white/10 text-white/80"
+                      className={`flex shrink-0 items-center justify-center rounded-2xl p-4 transition-all duration-300 md:p-5 ${isActive ? "bg-white/12 text-white" : "bg-white/10 text-white/80"
                         }`}
                     >
-                      {renderIcon(service.iconName, "h-7 w-7 md:h-8 md:w-8")}
+                      {renderIcon(service.iconName, "h-10 w-10 md:h-12 md:w-12")}
                     </div>
                     <div>
                       <h3 className="text-2xl font-black leading-tight text-white md:text-4xl">
