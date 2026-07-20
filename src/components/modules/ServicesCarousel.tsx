@@ -6,7 +6,7 @@ import { BarChart3, Coins, Cpu, ShieldCheck, TrendingUp } from "lucide-react";
 
 const SERVICES = [
   {
-    title: "Your Strategic CFO Office",
+    title: "Corporate Finance Adviser",
     tagline: "Strategic financial leadership.",
     description:
       "Strategic financial leadership without the full-time cost. We embed ourselves into your business as your CFO - planning, reporting, and decision-making included.",
@@ -218,11 +218,10 @@ export function ServicesCarousel() {
                 style={{
                   boxShadow: isActive ? `0 24px 48px -18px ${service.glowColor}` : "none",
                 }}
-                className={`absolute flex h-[470px] w-[92vw] max-w-[760px] cursor-pointer select-none flex-col overflow-hidden rounded-[28px] border p-6 backdrop-blur-xl transition-all duration-500 md:h-[500px] md:p-8 ${
-                  isActive
+                className={`absolute flex h-[470px] w-[92vw] max-w-[760px] cursor-pointer select-none flex-col overflow-hidden rounded-[28px] border p-6 backdrop-blur-xl transition-all duration-500 md:h-[500px] md:p-8 ${isActive
                     ? `${service.accentBorder} bg-gradient-to-br ${service.gradient}`
                     : "border-white/8 bg-white/[0.04] hover:border-white/16"
-                }`}
+                  }`}
               >
                 {isActive && (
                   <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-white/10 blur-3xl" />
@@ -231,9 +230,8 @@ export function ServicesCarousel() {
                 <div className="relative flex h-full flex-col">
                   <div className="mb-6 flex items-center justify-center gap-4 text-center">
                     <div
-                      className={`flex rounded-2xl p-3.5 transition-all duration-300 ${
-                        isActive ? "bg-white/12 text-white" : "bg-white/10 text-white/80"
-                      }`}
+                      className={`flex rounded-2xl p-3.5 transition-all duration-300 ${isActive ? "bg-white/12 text-white" : "bg-white/10 text-white/80"
+                        }`}
                     >
                       {renderIcon(service.iconName, "h-7 w-7 md:h-8 md:w-8")}
                     </div>
@@ -285,9 +283,8 @@ export function ServicesCarousel() {
             type="button"
             onClick={() => setActiveIndex(index)}
             aria-label={`Show ${service.title}`}
-            className={`h-2.5 rounded-full transition-all duration-300 ${
-              index === activeIndex ? "w-9 bg-secondary" : "w-2.5 bg-white/25 hover:bg-white/45"
-            }`}
+            className={`h-2.5 rounded-full transition-all duration-300 ${index === activeIndex ? "w-9 bg-secondary" : "w-2.5 bg-white/25 hover:bg-white/45"
+              }`}
           />
         ))}
       </div>
