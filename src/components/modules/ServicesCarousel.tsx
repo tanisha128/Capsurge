@@ -6,7 +6,7 @@ import { BarChart3, Coins, Cpu, ShieldCheck, TrendingUp } from "lucide-react";
 
 const SERVICES = [
   {
-    title: "Corporate Finance Adviser",
+    title: "Corporate Finance Advisory",
     tagline: "Strategic financial leadership.",
     description:
       "Strategic financial leadership without the full-time cost. We embed ourselves into your business as your CFO - planning, reporting, and decision-making included.",
@@ -219,8 +219,8 @@ export function ServicesCarousel() {
                   boxShadow: isActive ? `0 24px 48px -18px ${service.glowColor}` : "none",
                 }}
                 className={`absolute flex h-[470px] w-[92vw] max-w-[760px] cursor-pointer select-none flex-col overflow-hidden rounded-[28px] border p-6 backdrop-blur-xl transition-all duration-500 md:h-[500px] md:p-8 ${isActive
-                    ? `${service.accentBorder} bg-gradient-to-br ${service.gradient}`
-                    : "border-white/8 bg-white/[0.04] hover:border-white/16"
+                  ? `${service.accentBorder} bg-gradient-to-br ${service.gradient}`
+                  : "border-white/8 bg-white/[0.04] hover:border-white/16"
                   }`}
               >
                 {isActive && (
