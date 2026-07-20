@@ -23,67 +23,76 @@ export const Navbar = () => {
   };
 
   const desktopLinkStyle = (path: string) =>
-    `text-base lg:text-lg font-medium transition-colors ${
-      isActive(path) ? 'text-secondary' : 'hover:text-secondary'
+    `text-sm font-semibold tracking-[0.01em] transition-colors lg:text-base xl:text-lg ${
+      isActive(path) ? 'text-secondary' : 'text-white/88 hover:text-secondary'
     }`;
 
   const mobileLinkStyle = (path: string) =>
-    `text-lg font-medium transition-colors border-b border-gray-100 pb-3 ${
-      isActive(path) ? 'text-secondary' : 'hover:text-secondary'
+    `border-b border-white/10 pb-3 text-base font-semibold transition-colors ${
+      isActive(path) ? 'text-secondary' : 'text-white/88 hover:text-secondary'
     }`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-surface-dim">
-      <div className="container-custom h-16 md:h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <Logo />
-        </Link>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-5 lg:gap-lg">
-          {navigationLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={desktopLinkStyle(link.href)}>
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden md:flex items-center gap-md">
-          <Link href={process.env.NEXT_PUBLIC_NEW_LINK || '#'} className="text-base lg:text-lg font-medium transition-colors text-primary hover:text-secondary">
-            Login
+    <nav className="fixed inset-x-0 top-4 z-50 px-3 md:top-6 md:px-4">
+      <div className="relative mx-auto w-full max-w-[1400px] rounded-[30px] border border-white/10 bg-primary/88 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl">
+        <div className="flex h-20 items-center justify-between px-5 md:h-24 md:px-8 lg:px-10">
+          <Link href="/" className="flex items-center">
+            <Logo />
           </Link>
-        </div>
 
-        {/* Mobile Menu Toggle Button */}
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 -mr-2 text-primary hover:text-secondary focus:outline-none transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </div>
+          <div className="hidden items-center gap-5 md:flex lg:gap-7 xl:gap-8">
+            {navigationLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={desktopLinkStyle(link.href)}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div
-        className={`md:hidden absolute top-[100%] left-0 w-full bg-white border-b border-surface-dim shadow-xl overflow-hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="flex flex-col px-6 py-4 space-y-4 shadow-inner">
-          {navigationLinks.map((link) => (
+          <div className="hidden md:flex">
             <Link
-              key={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              href={link.href}
-              className={mobileLinkStyle(link.href)}
+              href={process.env.NEXT_PUBLIC_NEW_LINK || '#'}
+              className="rounded-full border border-white/12 bg-white/[0.06] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:text-secondary lg:px-6 lg:py-3 lg:text-base"
             >
-              {link.label}
+              Login
             </Link>
-          ))}
-          <Link onClick={() => setIsMobileMenuOpen(false)} href={process.env.NEXT_PUBLIC_NEW_LINK || '#'} className="text-lg font-medium transition-colors pb-2 hover:text-secondary">Login</Link>
+          </div>
+
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="rounded-full border border-white/12 bg-white/[0.06] p-2.5 text-white transition-colors hover:text-secondary focus:outline-none"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        <div
+          className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out md:hidden ${
+            isMobileMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="space-y-4 border-t border-white/10 px-5 pb-5 pt-3">
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                href={link.href}
+                className={mobileLinkStyle(link.href)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              onClick={() => setIsMobileMenuOpen(false)}
+              href={process.env.NEXT_PUBLIC_NEW_LINK || '#'}
+              className="inline-flex rounded-full border border-white/12 bg-white/[0.06] px-5 py-2.5 text-base font-semibold text-white transition-colors hover:text-secondary"
+            >
+              Login
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

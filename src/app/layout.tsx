@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "CapSurge — Rotating Services Cards (Isolated Demo)",
-  description: "Standalone extraction of the Navbar and the rotating services carousel cards.",
+  description: "Standalone extraction of the rotating services carousel cards.",
 };
 
 export default function RootLayout({
@@ -22,12 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable} suppressHydrationWarning>
       <body className="antialiased font-sans font-medium" suppressHydrationWarning>
-        <header className="sticky top-0 z-50 border-b border-surface-dim bg-white">
-          <div className="container-custom flex h-16 items-center justify-center md:h-20">
-            <Logo />
-          </div>
+        <header className="flex justify-center pt-6 pb-2" style={{ backgroundColor: "#f4f4f4" }}>
+          <Logo />
         </header>
-        <main className="pt-0">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

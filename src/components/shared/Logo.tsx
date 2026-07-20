@@ -27,7 +27,7 @@ export function Logo({ className = "", light = false }: { className?: string; li
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           animate={{ clipPath: "inset(0 0% 0 0)" }}
           transition={revealTransition}
-          className={`h-12 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-[1.02] ${
+          className={`h-16 md:h-24 w-auto object-contain transition-transform duration-300 hover:scale-[1.02] ${
             light ? "brightness-0 invert" : ""
           }`}
         />
